@@ -1,0 +1,14 @@
+node_modules
+.vscode
+.nyc_output
+coverage
+package-lock.json
+build
+temp_data
+npm-debug.log
+.env*
+!.env.example
+.vscode/*
+.nyc_output/*
+coverage/*
+!.vscode/launch.json
