@@ -74,11 +74,14 @@ app.get('/images/:imageId', async (req, res) => {
         // Convert image to buffer for caching
         const imageBuffer = await image.toBuffer();
 
+        // Get image format from metadata
+        const format = metadata.format;
+
         // Cache the processed image
-        myCache.set(cacheKey, imageBuffer);
+        myCache.set(cacheKey, { buffer: imageBuffer, format });
 
         // Send the processed image
-        res.type('image/png');
+        res.type(format);
         res.send(imageBuffer);
     } catch (err) {
         // Log error and send a 400 response
